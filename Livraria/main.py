@@ -1,3 +1,5 @@
+import json
+
 
 def cadastrar_livro():
     livro = {}
@@ -18,8 +20,22 @@ def menu():
 def listar_livros():
     print("Listando..")
 
+def ler_arquivo(nome_arquivo):
+    try:
+        with open(nome_arquivo, 'r') as arquivo:
+            livros = json.load(arquivo)
+    except FileNotFoundError:
+        livros = []
+    finally:
+        return livros
+
+def salvar_arquivo(nome_arquivo, livros):
+    with open(nome_arquivo, 'w') as arquivo:
+        json.dump(livros, arquivo, indent=4)
+
+
 def main():
-    livros = [] #Listas
+    livros = ler_arquivo("livros.json")
     opcao = -1
     while opcao!=0: # Laco de repeticao
         try:
@@ -39,6 +55,7 @@ def main():
                 print(livros)
             elif opcao == 0:
                 print("Programa sendo encerrado...")
+                salvar_arquivo("livros.json", livros)
             else:
                 print("Opção invalida...")
 

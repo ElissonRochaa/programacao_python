@@ -1,0 +1,14 @@
+[
+    {
+        "titulo": "Python",
+        "autor": "Alisson",
+        "ano_publicacao": 2023,
+        "preco_venda": 150.0
+    },
+    {
+        "titulo": "Java",
+        "autor": "Glaudemir",
+        "ano_publicacao": 2024,
+        "preco_venda": 250.0
+    }
+]
